@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#E5E0D0">
+  <title>디멘션</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Song+Myung&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <script type="module" crossorigin src="./assets/index-B9NYYNJr.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BIvXlHRO.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs></svg>
+
+  <!-- 게임 화면(three.js가 여기에 그린다)과 그 위의 정보판·설정 창 -->
+  <div id="stage"></div>
+  <div id="ui"></div>
+
+  <main id="app">
+    <!-- 시작 화면: 일부러 지루한 학습지. 적은 내용은 저장하지 않는다 -->
+    <section class="screen paper" id="paper" aria-label="시작 화면">
+      <div class="ws">
+        <p class="eyebrow">과학 · 국어 융합 학습 자료</p>
+        <div class="ms" id="ms" role="img" aria-label="디멘션은 차원"><span class="c">디</span><span class="c">멘</span><span class="c">션</span><span class="c">=</span><span class="c">차</span><span class="c">원</span></div>
+        <p class="lede">차원과 시점을 함께 배워 봅시다.</p>
+        <ol>
+          <li>점, 선, 면, 입체의 뜻을 알아봅시다.</li>
+          <li>소설의 네 가지 시점을 알아봅시다.</li>
+          <li>빈칸을 채우고 게임으로 확인해 봅시다.</li>
+        </ol>
+        <div class="fields">
+          <div class="fld"><span class="lbl">학년</span><span class="box"><span class="cells" data-max="1"></span><input id="f1" inputmode="numeric" maxlength="1" autocomplete="off" aria-label="학년"></span></div>
+          <div class="fld"><span class="lbl">반</span><span class="box"><span class="cells" data-max="2"></span><input id="f2" inputmode="numeric" maxlength="2" autocomplete="off" aria-label="반"></span></div>
+          <div class="fld"><span class="lbl">번호</span><span class="box"><span class="cells" data-max="2"></span><input id="f3" inputmode="numeric" maxlength="2" autocomplete="off" aria-label="번호"></span></div>
+          <div class="fld"><span class="lbl">이름</span><span class="box"><span class="cells" data-max="5"></span><input id="f4" maxlength="5" autocomplete="off" aria-label="이름"></span></div>
+        </div>
+        <button class="dull" id="dimBtn" hidden>차원 알아보기</button>
+        <!-- 1. 차원 알아보기: 원고지 한 칸이 선 → 면 → 공간으로 변한다(단계가 다 변하면 [다음]) -->
+        <section class="lesson" id="lesson" hidden aria-label="차원 알아보기">
+          <ol class="steps" id="lessonSteps"><li>점</li><li>선</li><li>면</li><li>공간</li></ol>
+          <canvas class="lesson-cv" id="lessonCv" aria-hidden="true"></canvas>
+          <p class="cap" aria-live="polite"><span class="g" id="lessonGlyph"></span><span id="lessonText"></span></p>
+          <div class="acts">
+            <button class="dull" id="nextBtn" hidden>다음</button>
+            <button class="dull" id="startBtn" hidden>종합해서 알아보기</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- 뒤집힌 세계 = 불러오는 화면 -->
+    <section class="screen night" id="night" hidden aria-label="불러오는 중">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="inner">
+        <svg class="title-svg" viewBox="0 0 520 110" role="img" aria-label="디멘션">
+          <rect class="cellbox draw" pathLength="1" x="10" y="14" width="500" height="82"/>
+          <line class="div draw" pathLength="1" x1="93" y1="14" x2="93" y2="96"/><line class="div draw" pathLength="1" x1="177" y1="14" x2="177" y2="96"/><line class="div draw" pathLength="1" x1="260" y1="14" x2="260" y2="96"/><line class="div draw" pathLength="1" x1="343" y1="14" x2="343" y2="96"/><line class="div draw" pathLength="1" x1="427" y1="14" x2="427" y2="96"/>
+          <text x="51" y="72" text-anchor="middle">디</text><text x="135" y="72" text-anchor="middle">멘</text><text x="218" y="72" text-anchor="middle">션</text>
+          <circle cx="385" cy="55" r="4" fill="#D3F1E4" opacity=".9"/>
+        </svg>
+        <p class="loading" id="loadingText" aria-live="polite">차원을 불러오는 중…</p>
+      </div>
+    </section>
+  </main>
+
+  <canvas class="static" id="static" width="160" height="90" aria-hidden="true"></canvas>
+  <div class="scan" aria-hidden="true"></div>
+  <div class="flash" id="flash" aria-hidden="true"></div>
+
+</body>
+</html>
