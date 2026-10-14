@@ -2,7 +2,7 @@
 
 과학의 **차원**과 국어의 **시점**을 함께 배우는 웹 게임이에요.
 
-- 플레이: https://dimension-green.vercel.app (같은 판: https://neil-jung.github.io/dimension/)
+- 플레이: https://dimensionman.vercel.app (같은 판: https://neil-jung.github.io/dimension/)
 - 원고지 책이 펼쳐지며 수업이 시작되고, 1·2·3차원에서 네 가지 시점으로 범인을 찾은 뒤, 생각의 우주에서 인생 고민이 별자리가 되는 걸 보고, 책이 덮이며 수업이 끝나요.
 - PC 크롬·엣지를 추천해요(three.js WebGPU, 안 되면 WebGL2).
 - 학생이 적은 이름은 저장하지 않아요. 진행 상황만 이 기기에 저장돼요.
