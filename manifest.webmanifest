@@ -1,0 +1,11 @@
+{
+  "name": "디멘션",
+  "short_name": "디멘션",
+  "description": "차원과 시점을 함께 배우는 게임",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#040905",
+  "theme_color": "#040905"
+}
